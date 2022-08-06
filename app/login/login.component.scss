@@ -1,0 +1,13 @@
+@import "../../vars.scss";
+.login__container {
+  width: 60%;
+  margin: 10% auto;
+  box-shadow: 10px 11px 19px 1px rgba(102, 100, 102, 0.92);
+  padding: 5%;
+  background: white;
+
+  &-btn {
+    background-color: map-get($color-palette, dpw-primary);
+    border: none;
+  }
+}

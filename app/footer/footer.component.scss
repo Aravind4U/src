@@ -1,0 +1,21 @@
+@import "../../vars.scss";
+.footer {
+  height: 50px;
+  width: 100%;
+  background-color: map-get($color-palette, dpw-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+
+  &__linkedin {
+    background-image: url("./../../assets/images/linkedin-2-64.png");
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    border: none;
+    margin-left: 20px;
+  }
+}

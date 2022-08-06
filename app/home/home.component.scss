@@ -1,0 +1,53 @@
+@import '../../vars.scss';
+.home__container {
+  margin-top: 2%;
+  background: white;
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 20%;
+  }
+
+
+  .data-table {
+    width: 100%;
+  }
+  .delete {
+    background-color:map-get($color-palette, dpw-red);
+  }
+
+  .edit {
+    background-color:map-get($color-palette, dpw-yellow);
+  }
+
+  .no-admin {
+    position: relative;
+    margin: 0;
+  }
+
+  .icon {
+    color: map-get($color-palette, dpw-white);
+  }
+
+  .no-data {
+    background-image: url('./../../assets/images/no-data.jpg');
+    background-size: 58% 90%;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 74%;
+    margin: 0 auto;
+    background-position: center;
+  }
+}
+
+.add {
+  border-radius: 0;
+  width: 10%;
+  padding: 2px;
+  color: map-get($color-palette, dpw-white);
+  background-color: map-get($color-palette, dpw-primary);
+  margin-top: 10px;
+
+  @media only screen and (max-width: 768px) {
+    width: 35%;
+  }
+}

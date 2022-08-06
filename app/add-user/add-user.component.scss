@@ -1,0 +1,17 @@
+@import '../../vars.scss';
+.user-container {
+  margin: 10% auto;
+  box-shadow: 10px 11px 19px 1px rgba(102,100,102,0.92);
+  padding: 10px;
+  background: white;
+
+  .success{
+    background-color: green;
+    margin-right: 20px;
+    color: map-get($color-palette, dpw-white);
+  }
+
+  .error {
+    color: red;
+  }
+}

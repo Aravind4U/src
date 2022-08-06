@@ -1,0 +1,83 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Add User</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="userName">User Name:</label>
+      <input
+        formControlName="userName"
+        [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+        placeholder="User Name"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+        <p *ngIf="f.userName.errors.required">User Name is required</p>
+        <p *ngIf="f.userName.errors.minlength">Minimum length should be 3</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input
+        formControlName="firstName"
+        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+        placeholder="First Name"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <p *ngIf="f.firstName.errors.required">First Name is required</p>
+        <p *ngIf="f.firstName.errors.minlength">Minimum length should be 3</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input
+        formControlName="lastName"
+        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+        placeholder="Last name"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+        <p *ngIf="f.lastName.errors.required">Last Name is required</p>
+        <p *ngIf="f.lastName.errors.minlength">Minimum length should be 3</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        [ngClass]="{ 'is-invalid': submitted && f.age.errors }"
+        formControlName="age"
+        placeholder="age"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+        <p *ngIf="f.age.errors.required">Age Name is required</p>
+        <p *ngIf="f.age.errors.max">Maximum value is 100</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input
+        type="number"
+        [ngClass]="{ 'is-invalid': submitted && f.salary.errors }"
+        formControlName="salary"
+        placeholder="Salary"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.salary.errors" class="invalid-feedback">
+        <p *ngIf="f.salary.errors.required">Salary is required</p>
+      </div>
+    </div>
+
+    <button mat-fab class="success">
+      <mat-icon>done</mat-icon>
+    </button>
+
+    <button (click)="onCancel()" mat-fab color="warn">
+      <mat-icon>close</mat-icon>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,84 @@
+<button *ngIf="isAdmin" mat-fab class="add" [routerLink]="'/add'">
+  <mat-icon class="icon">person_add</mat-icon> Add User
+</button>
+
+<div class="mat-elevation-z8 home__container">
+  <ng-container *ngIf="users.length > 0">
+    <table
+      mat-table
+      matSort
+      matSortActive="created"
+      matSortDisableClear
+      matSortDirection="asc"
+      [dataSource]="users"
+      class="mat-elevation-z8 data-table"
+    >
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.userName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="salary">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Salary</th>
+        <td mat-cell *matCellDef="let user">{{ user.salary }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Age</th>
+        <td mat-cell *matCellDef="let user">{{ user.age }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let user; let j = index">
+          <button
+            *ngIf="isAdmin"
+            (click)="deleteUser(user.id)"
+            mat-fab
+            class="delete"
+          >
+            <mat-icon class="icon">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action-edit">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <td mat-cell *matCellDef="let user; let j = index">
+          <button
+            [class.no-admin]="!isAdmin"
+            [routerLink]="'/add'"
+            [queryParams]="{ id: user.id }"
+            mat-fab
+            class="edit"
+          >
+            <mat-icon class="icon">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+    </table>
+
+    <mat-paginator
+      #paginator
+      [length]="resultsLength"
+      [pageSize]="10"
+    ></mat-paginator>
+  </ng-container>
+
+  <ng-container *ngIf="users.length === 0">
+    <div class="no-data"></div>
+  </ng-container>
+</div>

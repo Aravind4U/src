@@ -1,0 +1,35 @@
+@import "../../vars.scss";
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: map-get($color-palette, dpw-primary);
+  color: map-get($color-palette, dpw-white);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+
+  &__title {
+    font-size: 2em;
+    font-weight: bold;
+    top: 20%;
+    position: relative;
+    text-align: center;
+  }
+
+  .logout {
+    height: 36px;
+    width: 36px;
+    top: 4px;
+    left: 25%;
+
+    @media only screen and (max-width: 768px) {
+      left: 5%;
+    }
+
+    .mat-button-wrapper {
+      padding: 0;
+    }
+  }
+}
